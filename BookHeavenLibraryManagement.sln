@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.35731.53
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Book-Heaven-library-Management-System", "Book-Heaven-library-Management-System.csproj", "{1C0D80E9-9595-44A8-BA70-510C55FD791D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C0D80E9-9595-44A8-BA70-510C55FD791D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C0D80E9-9595-44A8-BA70-510C55FD791D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C0D80E9-9595-44A8-BA70-510C55FD791D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C0D80E9-9595-44A8-BA70-510C55FD791D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D61F1097-782C-4A4A-8CFA-F069EBF07A23}
+	EndGlobalSection
+EndGlobal
