@@ -112,6 +112,7 @@ namespace library_Management_SystemAD.BookHaven.UI
             this.Controls.Add(this.dgvOrders);
             this.Name = "OrderForm";
             this.Text = "OrderForm";
+            this.Load += new System.EventHandler(this.OrderForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

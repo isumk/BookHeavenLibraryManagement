@@ -29,7 +29,8 @@ namespace library_Management_SystemAD.BookHaven.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.components = new System.ComponentModel.Container();
+            this.comboBoxBooks = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvCart = new System.Windows.Forms.DataGridView();
             this.txtTotalPrice = new System.Windows.Forms.TextBox();
@@ -37,18 +38,26 @@ namespace library_Management_SystemAD.BookHaven.UI
             this.btnAddToCart = new System.Windows.Forms.Button();
             this.btnCheckout = new System.Windows.Forms.Button();
             this.btnRemoveItem = new System.Windows.Forms.Button();
+            this.bookHeavenDataSet = new library_Management_SystemAD.BookHeavenDataSet();
+            this.bookHeavenDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.BookTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usrNavPanel1 = new library_Management_SystemAD.BookHaven.UI.UsrNavPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookHeavenDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookHeavenDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // comboBoxBooks
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(346, 115);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBoxBooks.FormattingEnabled = true;
+            this.comboBoxBooks.Location = new System.Drawing.Point(346, 115);
+            this.comboBoxBooks.Name = "comboBoxBooks";
+            this.comboBoxBooks.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxBooks.TabIndex = 0;
+            this.comboBoxBooks.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -62,6 +71,11 @@ namespace library_Management_SystemAD.BookHaven.UI
             // dgvCart
             // 
             this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.BookTitle,
+            this.Quantity,
+            this.Price,
+            this.Total});
             this.dgvCart.Location = new System.Drawing.Point(205, 240);
             this.dgvCart.Name = "dgvCart";
             this.dgvCart.Size = new System.Drawing.Size(569, 160);
@@ -92,6 +106,7 @@ namespace library_Management_SystemAD.BookHaven.UI
             this.btnAddToCart.TabIndex = 5;
             this.btnAddToCart.Text = "Add To Cart";
             this.btnAddToCart.UseVisualStyleBackColor = true;
+            this.btnAddToCart.Click += new System.EventHandler(this.btnAddToCart_Click);
             // 
             // btnCheckout
             // 
@@ -101,6 +116,7 @@ namespace library_Management_SystemAD.BookHaven.UI
             this.btnCheckout.TabIndex = 6;
             this.btnCheckout.Text = "Checkout";
             this.btnCheckout.UseVisualStyleBackColor = true;
+            this.btnCheckout.Click += new System.EventHandler(this.btnCheckout_Click);
             // 
             // btnRemoveItem
             // 
@@ -110,6 +126,36 @@ namespace library_Management_SystemAD.BookHaven.UI
             this.btnRemoveItem.TabIndex = 7;
             this.btnRemoveItem.Text = "Remove Item";
             this.btnRemoveItem.UseVisualStyleBackColor = true;
+            // 
+            // bookHeavenDataSet
+            // 
+            this.bookHeavenDataSet.DataSetName = "BookHeavenDataSet";
+            this.bookHeavenDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bookHeavenDataSetBindingSource
+            // 
+            this.bookHeavenDataSetBindingSource.DataSource = this.bookHeavenDataSet;
+            this.bookHeavenDataSetBindingSource.Position = 0;
+            // 
+            // BookTitle
+            // 
+            this.BookTitle.HeaderText = "Book Title\t";
+            this.BookTitle.Name = "BookTitle";
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            // 
+            // Total
+            // 
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
             // 
             // usrNavPanel1
             // 
@@ -132,10 +178,13 @@ namespace library_Management_SystemAD.BookHaven.UI
             this.Controls.Add(this.txtTotalPrice);
             this.Controls.Add(this.dgvCart);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxBooks);
             this.Name = "SalesForm";
             this.Text = "SalesForm";
+            this.Load += new System.EventHandler(this.SalesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookHeavenDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookHeavenDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,7 +192,7 @@ namespace library_Management_SystemAD.BookHaven.UI
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxBooks;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvCart;
         private System.Windows.Forms.TextBox txtTotalPrice;
@@ -152,5 +201,11 @@ namespace library_Management_SystemAD.BookHaven.UI
         private System.Windows.Forms.Button btnCheckout;
         private System.Windows.Forms.Button btnRemoveItem;
         private UsrNavPanel usrNavPanel1;
+        private System.Windows.Forms.BindingSource bookHeavenDataSetBindingSource;
+        private BookHeavenDataSet bookHeavenDataSet;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BookTitle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
     }
 }
