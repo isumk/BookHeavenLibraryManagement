@@ -31,6 +31,15 @@ namespace library_Management_SystemAD.BookHaven.UI
         {
             this.components = new System.ComponentModel.Container();
             this.dgvBooks = new System.Windows.Forms.DataGridView();
+            this.bookIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.authorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iSBNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.booksBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bookHeavenDataSet = new library_Management_SystemAD.BookHeavenDataSet();
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.txtGenre = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
@@ -49,19 +58,10 @@ namespace library_Management_SystemAD.BookHaven.UI
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.usrNavPanel1 = new library_Management_SystemAD.BookHaven.UI.UsrNavPanel();
-            this.bookHeavenDataSet = new library_Management_SystemAD.BookHeavenDataSet();
-            this.booksBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.booksTableAdapter = new library_Management_SystemAD.BookHeavenDataSetTableAdapters.BooksTableAdapter();
-            this.bookIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.authorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iSBNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bookHeavenDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookHeavenDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvBooks
@@ -86,12 +86,66 @@ namespace library_Management_SystemAD.BookHaven.UI
             this.dgvBooks.TabIndex = 0;
             this.dgvBooks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBooks_CellContentClick);
             // 
+            // bookIDDataGridViewTextBoxColumn
+            // 
+            this.bookIDDataGridViewTextBoxColumn.DataPropertyName = "BookID";
+            this.bookIDDataGridViewTextBoxColumn.HeaderText = "BookID";
+            this.bookIDDataGridViewTextBoxColumn.Name = "bookIDDataGridViewTextBoxColumn";
+            this.bookIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // titleDataGridViewTextBoxColumn
+            // 
+            this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
+            this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
+            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+            // 
+            // authorDataGridViewTextBoxColumn
+            // 
+            this.authorDataGridViewTextBoxColumn.DataPropertyName = "Author";
+            this.authorDataGridViewTextBoxColumn.HeaderText = "Author";
+            this.authorDataGridViewTextBoxColumn.Name = "authorDataGridViewTextBoxColumn";
+            // 
+            // genreDataGridViewTextBoxColumn
+            // 
+            this.genreDataGridViewTextBoxColumn.DataPropertyName = "Genre";
+            this.genreDataGridViewTextBoxColumn.HeaderText = "Genre";
+            this.genreDataGridViewTextBoxColumn.Name = "genreDataGridViewTextBoxColumn";
+            // 
+            // iSBNDataGridViewTextBoxColumn
+            // 
+            this.iSBNDataGridViewTextBoxColumn.DataPropertyName = "ISBN";
+            this.iSBNDataGridViewTextBoxColumn.HeaderText = "ISBN";
+            this.iSBNDataGridViewTextBoxColumn.Name = "iSBNDataGridViewTextBoxColumn";
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            // 
+            // stockQuantityDataGridViewTextBoxColumn
+            // 
+            this.stockQuantityDataGridViewTextBoxColumn.DataPropertyName = "StockQuantity";
+            this.stockQuantityDataGridViewTextBoxColumn.HeaderText = "StockQuantity";
+            this.stockQuantityDataGridViewTextBoxColumn.Name = "stockQuantityDataGridViewTextBoxColumn";
+            // 
+            // booksBindingSource
+            // 
+            this.booksBindingSource.DataMember = "Books";
+            this.booksBindingSource.DataSource = this.bookHeavenDataSet;
+            // 
+            // bookHeavenDataSet
+            // 
+            this.bookHeavenDataSet.DataSetName = "BookHeavenDataSet";
+            this.bookHeavenDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // txtTitle
             // 
             this.txtTitle.Location = new System.Drawing.Point(311, 110);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(100, 20);
             this.txtTitle.TabIndex = 1;
+            this.txtTitle.TextChanged += new System.EventHandler(this.txtTitle_TextChanged);
             // 
             // txtGenre
             // 
@@ -241,62 +295,9 @@ namespace library_Management_SystemAD.BookHaven.UI
             this.usrNavPanel1.Size = new System.Drawing.Size(199, 422);
             this.usrNavPanel1.TabIndex = 17;
             // 
-            // bookHeavenDataSet
-            // 
-            this.bookHeavenDataSet.DataSetName = "BookHeavenDataSet";
-            this.bookHeavenDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // booksBindingSource
-            // 
-            this.booksBindingSource.DataMember = "Books";
-            this.booksBindingSource.DataSource = this.bookHeavenDataSet;
-            // 
             // booksTableAdapter
             // 
             this.booksTableAdapter.ClearBeforeFill = true;
-            // 
-            // bookIDDataGridViewTextBoxColumn
-            // 
-            this.bookIDDataGridViewTextBoxColumn.DataPropertyName = "BookID";
-            this.bookIDDataGridViewTextBoxColumn.HeaderText = "BookID";
-            this.bookIDDataGridViewTextBoxColumn.Name = "bookIDDataGridViewTextBoxColumn";
-            this.bookIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // titleDataGridViewTextBoxColumn
-            // 
-            this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
-            this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
-            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
-            // 
-            // authorDataGridViewTextBoxColumn
-            // 
-            this.authorDataGridViewTextBoxColumn.DataPropertyName = "Author";
-            this.authorDataGridViewTextBoxColumn.HeaderText = "Author";
-            this.authorDataGridViewTextBoxColumn.Name = "authorDataGridViewTextBoxColumn";
-            // 
-            // genreDataGridViewTextBoxColumn
-            // 
-            this.genreDataGridViewTextBoxColumn.DataPropertyName = "Genre";
-            this.genreDataGridViewTextBoxColumn.HeaderText = "Genre";
-            this.genreDataGridViewTextBoxColumn.Name = "genreDataGridViewTextBoxColumn";
-            // 
-            // iSBNDataGridViewTextBoxColumn
-            // 
-            this.iSBNDataGridViewTextBoxColumn.DataPropertyName = "ISBN";
-            this.iSBNDataGridViewTextBoxColumn.HeaderText = "ISBN";
-            this.iSBNDataGridViewTextBoxColumn.Name = "iSBNDataGridViewTextBoxColumn";
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            // 
-            // stockQuantityDataGridViewTextBoxColumn
-            // 
-            this.stockQuantityDataGridViewTextBoxColumn.DataPropertyName = "StockQuantity";
-            this.stockQuantityDataGridViewTextBoxColumn.HeaderText = "StockQuantity";
-            this.stockQuantityDataGridViewTextBoxColumn.Name = "stockQuantityDataGridViewTextBoxColumn";
             // 
             // BookInventoryForm
             // 
@@ -326,8 +327,8 @@ namespace library_Management_SystemAD.BookHaven.UI
             this.Text = "BookInventoryForm";
             this.Load += new System.EventHandler(this.BookInventoryForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bookHeavenDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookHeavenDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
