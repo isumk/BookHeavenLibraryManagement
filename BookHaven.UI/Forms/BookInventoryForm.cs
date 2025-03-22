@@ -143,5 +143,10 @@ namespace library_Management_SystemAD.BookHaven.UI
             txtPrice.Clear();
             txtStock.Clear();
         }
+
+        private void txtTitle_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
